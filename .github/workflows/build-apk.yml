@@ -36,8 +36,7 @@ jobs:
         run: yes | sdkmanager --licenses || true
 
       - name: Install Android SDK Components
-        run: |
-          sdkmanager "build-tools;36.0.0" "build-tools;34.0.0" "platforms;android-36" "platforms;android-34"
+        run: sdkmanager "build-tools;36.0.0" "build-tools;34.0.0" "platforms;android-36" "platforms;android-34"
 
       - name: Install npm dependencies
         run: npm install
@@ -50,27 +49,11 @@ jobs:
 
       - name: Build Debug APK
         working-directory: android
-        run: |
-          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 || true
-          echo "--- Checking for APK ---"
-          find . -name "*.apk" -type f 2>/dev/null
-
-      - name: Find and upload APK
-        run: |
-          APK_PATH=$(find android -name "*.apk" -type f | head -1)
-          echo "Found APK at: $APK_PATH"
-          if [ -n "$APK_PATH" ]; then
-            cp "$APK_PATH" ./G-Village.apk
-            ls -la ./G-Village.apk
-          else
-            echo "No APK found, checking build errors..."
-            find android -name "*.log" -type f | head -5 | xargs tail -20 2>/dev/null || true
-            exit 1
-          fi
+        run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: G-Village-APK
-          path: ./G-Village.apk
+          path: android/app/build/outputs/apk/debug/
           retention-days: 30
