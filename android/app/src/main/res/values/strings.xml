@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">G-Village</string>
+    <string name="title_activity_main">G-Village</string>
+    <string name="package_name">co.id.globalvillage.app</string>
+    <string name="custom_url_scheme">co.id.globalvillage.app</string>
+</resources>

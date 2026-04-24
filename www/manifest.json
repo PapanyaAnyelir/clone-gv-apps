@@ -1,0 +1,29 @@
+{
+  "name": "Global Village",
+  "short_name": "G-Village",
+  "description": "Platform komunitas desa digital Indonesia — Radio, TV, Konten, dan UMKM dalam satu aplikasi.",
+  "start_url": "/gv-demo-v3.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#1B5E20",
+  "lang": "id",
+  "categories": ["social", "news", "education"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%231B5E20'/%3E%3Cpath d='M96 28c0 0-48 30-48 72 0 27 21 48 48 48s48-21 48-48C144 58 96 28 96 28z' fill='%2366BB6A'/%3E%3Cpath d='M96 148V80' stroke='white' stroke-width='4' stroke-linecap='round' opacity='.6'/%3E%3Cpath d='M96 116c-12-10-22-21-28-33' stroke='white' stroke-width='3' stroke-linecap='round' opacity='.35'/%3E%3Cpath d='M96 104c10-9 20-20 26-32' stroke='white' stroke-width='3' stroke-linecap='round' opacity='.35'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%231B5E20'/%3E%3Cpath d='M256 72c0 0-128 80-128 192 0 72 56 128 128 128s128-56 128-128C384 152 256 72 256 72z' fill='%2366BB6A'/%3E%3Cpath d='M256 392V212' stroke='white' stroke-width='8' stroke-linecap='round' opacity='.6'/%3E%3Cpath d='M256 308c-32-28-60-56-76-88' stroke='white' stroke-width='6' stroke-linecap='round' opacity='.35'/%3E%3Cpath d='M256 276c28-24 52-52 68-84' stroke='white' stroke-width='6' stroke-linecap='round' opacity='.35'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
