@@ -50,17 +50,21 @@ jobs:
 
       - name: Build Debug APK
         working-directory: android
-        run: ./gradlew assembleDebug --no-daemon
+        run: |
+          ./gradlew assembleDebug --no-daemon --stacktrace 2>&1 || true
+          echo "--- Checking for APK ---"
+          find . -name "*.apk" -type f 2>/dev/null
 
-      - name: Find and rename APK
+      - name: Find and upload APK
         run: |
           APK_PATH=$(find android -name "*.apk" -type f | head -1)
           echo "Found APK at: $APK_PATH"
           if [ -n "$APK_PATH" ]; then
             cp "$APK_PATH" ./G-Village.apk
-            echo "APK copied successfully"
+            ls -la ./G-Village.apk
           else
-            echo "ERROR: No APK found!"
+            echo "No APK found, checking build errors..."
+            find android -name "*.log" -type f | head -5 | xargs tail -20 2>/dev/null || true
             exit 1
           fi
 
