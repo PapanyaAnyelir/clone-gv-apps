@@ -44,6 +44,31 @@ jobs:
       - name: Sync Capacitor to Android
         run: npx cap sync android
 
+      - name: Generate app icons from icon.png
+        run: |
+          pip install Pillow
+          python3 -c "
+          from PIL import Image
+          import os
+          img = Image.open('icon.png').convert('RGBA')
+          RES = 'android/app/src/main/res'
+          sizes = {'mipmap-mdpi':48,'mipmap-hdpi':72,'mipmap-xhdpi':96,'mipmap-xxhdpi':144,'mipmap-xxxhdpi':192}
+          fg = {'mipmap-mdpi':108,'mipmap-hdpi':162,'mipmap-xhdpi':216,'mipmap-xxhdpi':324,'mipmap-xxxhdpi':432}
+          for f,s in sizes.items():
+              p=os.path.join(RES,f); os.makedirs(p,exist_ok=True)
+              ic=img.resize((s,s),Image.LANCZOS).convert('RGB')
+              ic.save(os.path.join(p,'ic_launcher.png'))
+              ic.save(os.path.join(p,'ic_launcher_round.png'))
+          for f,s in fg.items():
+              p=os.path.join(RES,f); os.makedirs(p,exist_ok=True)
+              c=Image.new('RGBA',(s,s),(0,0,0,0))
+              l=img.resize((int(s*0.65),int(s*0.65)),Image.LANCZOS)
+              o=(s-l.size[0])//2
+              c.paste(l,(o,o),l)
+              c.save(os.path.join(p,'ic_launcher_foreground.png'))
+          print('15 icons generated!')
+          "
+
       - name: Grant Gradle permissions
         run: chmod +x android/gradlew
 
