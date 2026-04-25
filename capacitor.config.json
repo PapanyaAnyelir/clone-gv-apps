@@ -1,5 +1,13 @@
 {
   "appId": "co.id.globalvillage.app",
   "appName": "G-Village",
-  "webDir": "www"
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#FFFFFF",
+    "allowMixedContent": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
 }
