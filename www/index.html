@@ -131,8 +131,8 @@ a{text-decoration:none;color:inherit}
 .ip.sunset{background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%)}
 .ip.forest{background:linear-gradient(160deg,#1B5E20 0%,#388E3C 40%,#66BB6A 100%)}
 .ip::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.12) 0%,transparent 50%);pointer-events:none}
-.hm-sticky{position:fixed;top:0;left:50%;transform:translateX(-50%);max-width:430px;width:100%;background:linear-gradient(135deg,var(--g800),var(--g600));padding:8px 16px;display:flex;align-items:center;gap:10px;z-index:80;opacity:0;pointer-events:none;transition:all .25s ease}
-.hm-sticky.show{opacity:1;pointer-events:auto}
+.hm-sticky{position:fixed;top:0;left:50%;transform:translateX(-50%);max-width:430px;width:100%;background:linear-gradient(135deg,var(--g800),var(--g600));padding:8px 16px;display:none;align-items:center;gap:10px;z-index:80;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.hm-sticky.show{opacity:1;pointer-events:auto;display:flex}
 .hm-sticky .hm-av{width:32px;height:32px}
 .hm-sticky .hm-search{margin:0;flex:1}
 .hm-sticky .hm-search input{height:36px;font-size:12px}
