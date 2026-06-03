@@ -1,5 +1,5 @@
 // Global Village V3 — Service Worker
-const CACHE_NAME = 'gv-v3-cache-v1';
+const CACHE_NAME = 'gv-v3-cache-v2';
 const ASSETS = [
   '/gv-demo-v3.html',
   '/manifest.json',
